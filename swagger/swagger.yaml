@@ -1,0 +1,125 @@
+---
+swagger: "2.0"
+info:
+  version: "0.0.2"
+  title: "Terebi API Server"
+paths:
+  /channels:
+    get:
+      tags:
+      - "default_controller"
+      description: "Gets `Channel` objects."
+      operationId: "controllers.channels.channels_get"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            type: "array"
+            title: "ArrayOfChannels"
+            items:
+              $ref: "#/definitions/Channel"
+  /pinfo:
+    get:
+      tags:
+      - "default_controller"
+      description: "Returns current and comming 10 programs"
+      operationId: "controllers.pinfo.pinfo_get"
+      parameters:
+      - name: "channel_disc"
+        in: "query"
+        description: "Channel Description"
+        required: true
+        type: "string"
+      - name: "channel_type"
+        in: "query"
+        description: "Channel Type"
+        required: true
+        type: "string"
+      - name: "channel"
+        in: "query"
+        description: "Channel"
+        required: true
+        type: "string"
+      - name: "etime"
+        in: "query"
+        description: "current time = Program End time"
+        required: true
+        type: "number"
+        format: "integer"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            type: "array"
+            title: "ArrayOfProgram"
+            items:
+              $ref: "#/definitions/Program"
+  /play:
+    get:
+      tags:
+      - "default_controller"
+      description: "Play `Channel` on screen."
+      operationId: "controllers.play.play_get"
+      parameters:
+      - name: "sid"
+        in: "query"
+        description: "Channel Description"
+        required: true
+        type: "string"
+      - name: "channel_type"
+        in: "query"
+        description: "Channel Type"
+        required: true
+        type: "string"
+      - name: "channel"
+        in: "query"
+        description: "Channel"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/Result"
+        500:
+          description: "Error response"
+          schema:
+            $ref: "#/definitions/Result"
+  /stop:
+    get:
+      tags:
+      - "default_controller"
+      description: "Play `Channel` on screen."
+      operationId: "controllers.stop.stop_get"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/Result"
+        500:
+          description: "Error response"
+          schema:
+            $ref: "#/definitions/Result"
+definitions:
+  Channel:
+    properties:
+      name:
+        type: "string"
+      adi:
+        type: "string"
+  Program:
+    properties:
+      title:
+        type: "string"
+      description:
+        type: "string"
+      program_disc:
+        type: "string"
+      starttime:
+        type: "string"
+      endtime:
+        type: "string"
+  Result:
+    properties:
+      result:
+        type: "string"
