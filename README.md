@@ -13,7 +13,11 @@ python3 app.py
 
 # available api
 
+<<<<<<< HEAD
 open your browser to here :
+=======
+open your browser to here:
+>>>>>>> 3665d3a29b19d0d35c3817346b32ff90763546fe
 
 ```
 http://localhost:8080/ui/
