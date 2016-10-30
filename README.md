@@ -13,7 +13,7 @@ python3 app.py
 
 # available api
 
-open your browser to here:
+open your browser to here :
 
 ```
 http://localhost:8080/ui/
