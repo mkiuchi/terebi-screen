@@ -5,11 +5,13 @@ This is Terebi for screen. There is no detailed explanation. Just for me.
 
 ## install and run
 
+```shell
 dnf install python3-devel
 python3 -m pip install connexion zeroconf
 git clone https://github.com/mkiuchi/terebi-screen.git
 cd terebi-screen
 python3 app.py
+```
 
 # available api
 
